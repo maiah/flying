@@ -14,8 +14,8 @@
 var MyComponent = flight.component(function() {
   this.after('initialize', function() {
     this.node.value = 'hey';
-  this.on('click', this.doSomething);
-  //this.on('mouseover', popUpNow);
+    this.on('click', this.doSomething);
+    //this.on('mouseover', popUpNow);
   });
 
   this.doSomething = function() {
