@@ -15,26 +15,26 @@ var MyComponent = flight.component(function() {
   this.after('initialize', function() {
     this.node.value = 'hey';
   this.on('click', this.doSomething);
-	//this.on('mouseover', popUpNow);
+  //this.on('mouseover', popUpNow);
   });
 
   this.doSomething = function() {
-	this.trigger('mytrigger');
+    this.trigger('mytrigger');
   }
 });
 
 var MyComponent2 = flight.component(function() {
   this.after('initialize', function() {
     this.node.value = 'Yes';
-	this.on(document, 'mytrigger', this.changeText);
+    this.on(document, 'mytrigger', this.changeText);
   });
 
   this.changeText = function() {
     if (this.node.value === 'Yes') {
-	  this.node.value = 'No';
-	} else {
-	  this.node.value = 'Yes';
-	}
+      this.node.value = 'No';
+    } else {
+      this.node.value = 'Yes';
+    }
   }
 });
 
