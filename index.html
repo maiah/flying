@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Flying</title>
+</head>
+<body>
+<input type="submit" class="thing"></input>
+<input type="text" class="thing2"></input>
+
+<script src='js/jquery-1.9.1.min.js'></script>
+<script src='js/es5-shim.min.js'></script>
+<script src='js/es5-sham.min.js'></script>
+<script src='js/flight.js'></script>
+<script>
+var MyComponent = flight.component(function() {
+  this.after('initialize', function() {
+    this.node.value = 'hey';
+  this.on('click', this.doSomething);
+	//this.on('mouseover', popUpNow);
+  });
+
+  this.doSomething = function() {
+	this.trigger('mytrigger');
+  }
+});
+
+var MyComponent2 = flight.component(function() {
+  this.after('initialize', function() {
+    this.node.value = 'Yes';
+	this.on(document, 'mytrigger', this.changeText);
+  });
+
+  this.changeText = function() {
+    if (this.node.value === 'Yes') {
+	  this.node.value = 'No';
+	} else {
+	  this.node.value = 'Yes';
+	}
+  }
+});
+
+MyComponent.attachTo('.thing');
+MyComponent2.attachTo('.thing2');
+</script>
+</body>
+</html>
